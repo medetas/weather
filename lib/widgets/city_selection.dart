@@ -23,9 +23,9 @@ class _CitySelectionState extends State<CitySelection> {
                 child: TextFormField(
                   controller: _textController,
                   decoration: InputDecoration(
-                    labelText: 'City',
-                    hintText: 'Chicago',
-                  ),
+                      labelText: 'City',
+                      hintText: 'City name',
+                      hintStyle: TextStyle(color: Colors.grey)),
                 ),
               ),
             ),

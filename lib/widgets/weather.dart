@@ -57,7 +57,23 @@ class _WeatherState extends State<Weather> {
           },
           builder: (context, state) {
             if (state is WeatherInitial) {
-              return Center(child: Text('Please Select a Location'));
+              return BlocBuilder<ThemeBloc, ThemeState>(
+                builder: (context, themeState) {
+                  return GradientContainer(
+                    color: themeState.color,
+                    child: Container(
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
+                      child: Center(
+                        child: Text(
+                          'Please Select a Location',
+                          style: TextStyle(fontSize: 24, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
             }
             if (state is WeatherLoadInProgress) {
               return Center(child: CircularProgressIndicator());
@@ -78,14 +94,18 @@ class _WeatherState extends State<Weather> {
                       },
                       child: ListView(
                         children: <Widget>[
+                          Container(
+                            alignment: Alignment.topRight,
+                            child: LastUpdated(dateTime: weather.lastUpdated),
+                          ),
                           Padding(
-                            padding: EdgeInsets.only(top: 100.0),
+                            padding: EdgeInsets.only(top: 75.0),
                             child: Center(
                               child: Location(location: weather.location),
                             ),
                           ),
                           Center(
-                            child: LastUpdated(dateTime: weather.lastUpdated),
+                            child: LocalTime(localTime: weather.localTime),
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 50.0),

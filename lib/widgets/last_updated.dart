@@ -12,8 +12,8 @@ class LastUpdated extends StatelessWidget {
     return Text(
       'Updated: ${TimeOfDay.fromDateTime(dateTime).format(context)}',
       style: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w200,
+        fontSize: 14,
+        fontWeight: FontWeight.w300,
         color: Colors.white,
       ),
     );
