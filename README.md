@@ -1,3 +1,3 @@
 # weather
 
-<img src = 'assets/personal_expenses.gif'>
+<img src = 'assets/weathergif.gif'>
